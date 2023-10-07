@@ -44,6 +44,22 @@ a : 다중 if문은 일반 if문에 비해 어떤 점이 좋은 것 같아?
 
 b : 나는 어떤 차이가 있는지 잘 모르겠어.
 
+다중if문
+if (input > = 0){
+if(input % 2 = = 0){
+printf("입력한 수 %d는 양수이며 짝수입니다.\n", input);
+else
+printf("입력한 수 %d는 양수이며 홀수입니다.\n", input);
+}
+
+if   else if문
+if(input > = 0 && input % 2 = = 0)
+printf("입력한 수 %d는 양수이며 짝수입니다.\n", input);
+else if(input > = 0 && input % 2 ! = 0)
+printf("입력한 수 %d는 양수이며 홀수입니다.\n", input);
+else
+printf("입력한 수 %d는 음수입니다.\n")
+
 a : 그래? 우선 예시 문장을 한번 보자. 둘 다 3문장으로 문장의 개수는 같아
     그런데 조건을 보면 조건이 다중 if문에서는 1개뿐이고
     else if를 사용하면 계속 0보다 크거나 같다 라는 조건을 추가해야해
