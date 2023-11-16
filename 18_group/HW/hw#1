@@ -23,6 +23,7 @@ int main(void) {
 	}
 
 	Sorting(b, size);
+
 	printf("\n\n[내림차순 정렬 후 배열]\n");
 	for (i = 0; i < size; i++) {
 		printf("%d ", *(b + i));
