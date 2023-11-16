@@ -1,1 +1,77 @@
 과제 #1
+
+#include <stdio.h>
+
+int Max(int* pArr, int size);
+int Min(int* pArr, int size);
+void Sorting(int* pArr, int size);
+
+int main(void) {
+	int bmax, bmin,i;
+	int b[] = { 20,34,12,24,54,91,9,40,81,10 };
+
+	int size = sizeof(b) / sizeof(int);
+	
+	bmax = Max(b, size);
+	bmin = Min(b, size);
+
+	printf("max : %d\nmin : %d\n\n", bmax, bmin);
+
+	printf("[정렬 전 배열]\n");
+	for (i = 0; i < size; i++) {
+		printf("%d ", *(b + i));
+	}
+
+	Sorting(b, size);
+	printf("\n\n[내림차순 정렬 후 배열]\n");
+	for (i = 0; i < size; i++) {
+		printf("%d ", *(b + i));
+	}
+	printf("\n");
+	return 0;
+}
+
+
+
+int Max(int* pArr, int size) {
+	int i;
+	int max = *pArr;
+
+	for (i = 1; i < size; i++) {
+		if (max < *(pArr + i)) {
+			max = *(pArr + i);
+		}
+	}
+
+	return max;
+}
+
+int Min(int* pArr, int size) {
+	int i;
+	int min = *pArr;
+
+	for (i = 1; i < size; i++) {
+		if (min > *(pArr + i)) {
+			min = *(pArr + i);
+		}
+	}
+
+	return min;
+}
+
+void Sorting(int* pArr, int size) {
+	int i, j;
+
+	for ( j = 0; j < size-1; j++) {
+		for (i = j+1; i < size ; i++) {
+			if (*(pArr + j) < *(pArr + i )) {
+				int temp;
+				temp = *(pArr + i);
+				*(pArr + i) = *(pArr + j);
+				*(pArr + j) = temp;
+			}
+		}
+	}
+
+
+}
