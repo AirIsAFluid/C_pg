@@ -29,4 +29,14 @@ char [][8] = { "math", "english", "korean" }; 으로 선언하면
 문자열에서 변수의 이름은 문자열이 아니라 포인터이기 때문에
 문자열을 다루기 위해 string.h에 있는 라이브러리 함수를 통해 문자 비교, 복사 등이 가능하다.
 
-strlen(const char*) 문자 개수 출력
+size_t strlen(const char*) 문자 개수 출력
+int strcmp(const char* s1, const char* s2) s1 s2 문자열 비교
+char* strcpy(char* s1, const char* s2) 문자열 s1을 s2로 복사한다. 문자열의 길이는 s1이 s2보다 크거나 같아야 한다.
+char* strcat(char* s1, const char* s2) 문자열 s1에 문자열 s2를 연결한다. 합친 문자열의 크기는 s1의 크기를 넘지 않아야 한다.
+
+
+
+<문자열 포인터에 관한 고찰>
+
+
+
