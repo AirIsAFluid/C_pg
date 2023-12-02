@@ -44,35 +44,137 @@ fclose(fp);
 
 문자 입출력 함수 fgetc, fputc
 
+fgetc(FILE*)
+인자 파일포인터
+반환값 char
+파일에서 문자 하나를 읽어옴
+
+fputc(char, FILE*)
+인자 1 기록할 문자
+인자 2 파일포인터
+파일에 문자가 기록됨
 
 문자열 입출력 함수 fgets, fputs
 
+fgets(char *, int , FILE *);
+인자 1 : 읽을 문자 배열 가리키는 포인터
+인자 2 : 읽을 문자 크기
+인자 3 : 파일 포인터
+
+fputs(char *, FILE *);
+인자 1 : 파일에 저장할 문자 배열을 가리키는 포인터
+인자 2 : 파일 포인터
+
+
+
 블록 입출력 함수 fread, fwrite
+
+fread fwrite 형식
+함수명(void* 포인터, 바이트 크기, 블록 수, FILE* 포인터);
+
+fread fwrite는 블록 단위로 읽거나 쓸 수 있다.
+
+인자 1 : 파일에서 읽거나 쓸 자료를 가리키는 포인터
+인자 2 : 바이트 크기
+인자 3 : 반복 횟수
+인자 4 : 파일 포인터
+
+ex)fread(&a, sizeof(int), 4, fp);
+   fwirte(&b, sizeof(b), 1, fp);
+
+
 
 형식화된 입출력 함수 fprintf, fscanf (printf, scanf의 파일 버전)
 
+printf,scanf처럼 형식을 쓰고 맨 앞에 기록하거나 읽을 파일을 찾기 위해 파일 포인터를 인자에 추가한다.
+
+형식
+fprintf(FILE* 포인터, 변환기호, 변수 목록);
+fscanf(FILE* 포인터, 변환기호, 변수 목록);
+
+fprintf는 파일에 기록하고
+fscanf는 파일에서 읽어들인 항목을 반환한다.
 
 
 
-파일 임의 접근 fseek함수
+
+파일 임의 접근 
+
+<fseek함수>
+
+일반적인 방법으로는 파일을 처음부터 끝까지 순차적으로 접근한다.
+임의의 위치에서 파일을 접근할 수도 있다.
+
+(파일 위치 지시자)
+SEEK_SET 파일처음  0
+SEEK_CUR 현재위치  1
+SEEK_END 파일끝    2
+
+fseek 함수
+
+fseek(FILE* fp, long offset, int origin);
+인자 1 파일 포인터
+인자 2 origin으로부터의 거리 (바이트 단위)
+인자 3 파일 위치 지시자
 
 
-fgetpos , fsetpose 함
+사용법
+FILE *fp;
+fseek(fp, 100L, SEEK_SET); // 파일의 처음 위치에서 100바이트 이동해라
+fseek(fp, 100L, SEEK_CUR); // 파일의 현재 위치에서 100바이트 이동해라 // 현재위치 : 시작위치+200바이트
+fseek(fp, -100L, SEEK_END); // 파일의 끝에서 -100바이트 이동해라
+
+
+
+
+<fgetpos , fsetpose 함수>
+
+fgetpos(FILE* fp, fpos_t* pos);
+인자 1 파일 포인터
+인자 2 현재 파일 위치 지시자가 가리키는 위치를 저장하는 포인터 ( 현재 파일을 어디부터 읽을지 가리키는 위치를 저장)
+fpos_t : 파일 위치 자료형으로 long을 재정의 한 것이다.
+
+성공할 경우 반환값 0
+실패할 경우 반환값 0이 아닌 값
+
+fsetpos(FILE* fp, const fpos_t* pos);
+인자 1 : 파일 포인터
+인자 2 : 이동하고자 하는 파일 위치 지시자의 새로운 위치 ( 파일지시자를 새로운 위치로 변경 )
+
+성공할 경우 반환값 0
+실패할 경우 반환값 0이 아닌 값
+
+fsetpos( ) 함수를 사용하려면 반드시 fgetpos( ) 함수를 통해 pos 값을 가지고 있어야 한다.
+
+
+<파일 임의 접근에 관한 고찰>
+
+
+
+
 
 
 
 
 매크로
 
-
+반복적으로 나타나는 상수나 함수를 명령 하나로 새롭게 정의
+#define으로 정의를 시작한다.
 
 매크로 상수
+#define 매크로명 대체할값
+대체할 값에는 리스트명, 수, 문자열 등이 올 수 있다.
 
+#define PI 3.14 // PI는 3.14와 동일한 값을 가진다.
+#define World "hello world!" //World는 "hello world"의 문자열이다.
 
 
 
 매크로 함수
+#define   매크로 함수명(인자1, 인자2, ...)   함수_정의
 
+예시
 
+#define Multiply(x,y) ((x)*(y))
 
-
+Multiply(3,5) // 출력결과 15
