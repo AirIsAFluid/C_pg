@@ -134,7 +134,7 @@ int main(void) {
 				printf("%7s %8s %8s   %d    %d   %s\n\n", book5.Title, book5.Authors, book5.Press, book5.Page, book5.Price, borrow5);
 			}
 			else {
-				printf("보유하고 있지 않은 책입니다.");
+				printf("보유하고 있지 않은 책입니다.\n\n");
 			}
 
 
@@ -204,7 +204,7 @@ int main(void) {
 				printf("%7s %8s %8s   %d    %d   %s\n\n", book5.Title, book5.Authors, book5.Press, book5.Page, book5.Price, borrow5);
 			}
 			else {
-				printf("보유하고 있지 않은 책입니다.");
+				printf("보유하고 있지 않은 책입니다.\n\n");
 			}
 
 
