@@ -37,13 +37,13 @@ void Select_Sort(int* a, int count){
         if(min_value>a[j])
         {
           min_index = j;
-          min_value = a[j]
+          min_value = a[j];
         }
 
       }
 
     a[min_index] = a[i];
-    a[i] = min_value
+    a[i] = min_value;
   }
 
 }
@@ -146,7 +146,7 @@ void Select Sort(int* a, int count)
       }
 
     a[j] = temp;
-  ]
+  }
 }
 
 
