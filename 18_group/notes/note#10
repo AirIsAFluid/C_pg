@@ -182,7 +182,7 @@ void Shell_Sort(int* a, int count)
   int i, j, inc, h;
   int temp;
 
-  for(h = count/2;h>0;i++)
+  for(h = count/2;h>0;h/=2)
     {
       for(i =0; i<h;i++)
         {
@@ -196,7 +196,7 @@ void Shell_Sort(int* a, int count)
               a[inc] = a[inc-h];
               inc = inc - h;
             }
-
+              a[inc] = temp;
           }  
 
         }
@@ -237,9 +237,9 @@ void Quick_Sort(int* a, int count)
       a[j] = temp;
     }
   temp = a[i];
-  a[i] = a[count-i]
+  a[i] = a[count-1];
   a[count-1] = temp;
-  Quick_Sort(a,i)
+  Quick_Sort(a,i);
   Quick_Sort(a+i+1, count-i-1);
     
   }
